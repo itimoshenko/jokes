@@ -7,7 +7,9 @@ import { Layout } from '@/layout';
 import { RecoilRoot } from 'recoil';
 
 const App: React.FC<AppProps> = memo(({ Component }: AppProps) => (
+  <RecoilRoot>
       <Component />
+  </RecoilRoot>
 ));
 
 export default App;
