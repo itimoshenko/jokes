@@ -1,13 +1,17 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import React, { memo } from 'react';
 
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
-}
+import {
+  Html, Head, Main, NextScript,
+} from 'next/document';
+
+const Document: React.FC = memo(() => (
+  <Html lang="en" className="bg-colorBgBase">
+    <Head />
+    <body className="m-0">
+      <Main />
+      <NextScript />
+    </body>
+  </Html>
+));
+
+export default Document;
