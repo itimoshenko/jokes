@@ -8,7 +8,9 @@ import { RecoilRoot } from 'recoil';
 
 const App: React.FC<AppProps> = memo(({ Component }: AppProps) => (
   <RecoilRoot>
+    <Layout>
       <Component />
+    </Layout>
   </RecoilRoot>
 ));
 
