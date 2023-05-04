@@ -9,7 +9,7 @@ const useResource = <OPTIONS, RESPONSE, RESOURCE>({
   initOptions = {},
   defaultResource,
   onLoad,
-  onTransformData: onDataSelect = (data: RESPONSE): RESOURCE => data as unknown as RESOURCE,
+  onTransformData = (data: RESPONSE): RESOURCE => data as unknown as RESOURCE,
   onError = () => {},
 }: UseResourceOptions<OPTIONS, RESPONSE, RESOURCE>): UseResourceReturnType<
   OPTIONS,
@@ -43,12 +43,12 @@ const useResource = <OPTIONS, RESPONSE, RESOURCE>({
       prevReq.current = req;
 
       return req
-        .then(onDataSelect)
+        .then(onTransformData)
         .then(setResource)
         .catch(onError)
         .finally(() => setIsLoading(false));
     },
-    [initOptions, cancelLoad, onLoad, onDataSelect, onError],
+    [initOptions, cancelLoad, onLoad, onTransformData, onError],
   );
 
   useEffect(() => {
