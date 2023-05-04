@@ -6,7 +6,7 @@ class ApiClient {
 
   private static toJSON = (response: Response) => response.json();
 
-  private static handleError = (e: Error) => Promise.reject(e);
+  private static handleError = (e: unknown) => Promise.reject(e);
 
   private static cancelRequest = (req: Promise<unknown>) => {
     ApiClient.pendingRequests.get(req)?.abort();
