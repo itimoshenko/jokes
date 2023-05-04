@@ -13,6 +13,10 @@ const Jokes: React.FC = memo(() => {
   const handleAddToFavorite = useAddToFavoriteHandler();
   useFreshJoke(Number(process.env.NEXT_PUBLIC_JOKE_UPDATE_INTERVAL));
 
+  if (error) {
+    return <div>Failed to fetch data</div>;
+  }
+
   return (
     <JokeList
       isLoading={isLoading}
