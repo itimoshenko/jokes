@@ -22,13 +22,14 @@ const JokeList: React.FC<JokeListProps> = memo((
       loading={isLoading}
       size="large"
       dataSource={jokes}
-      renderItem={(item) => {
+      renderItem={(item, i) => {
         const IconComponent = item.isFavorite ? HeartFilled : HeartOutlined;
 
         return (
           <List.Item
             actions={[
               <Button
+                data-testid={`fav-${i}`}
                 className="hover:scale-125 active:scale-75"
                 type="link"
                 size="large"
